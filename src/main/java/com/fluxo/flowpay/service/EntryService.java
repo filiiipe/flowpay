@@ -4,6 +4,7 @@ import com.fluxo.flowpay.dto.DailyBalanceDTO;
 import com.fluxo.flowpay.enums.EntryType;
 import com.fluxo.flowpay.model.Entry;
 import com.fluxo.flowpay.repository.EntryRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -15,6 +16,7 @@ import static java.util.stream.Collectors.groupingBy;
 @Service
 public class EntryService {
 
+    @Autowired
     private final EntryRepository er;
 
     public EntryService(EntryRepository er){
