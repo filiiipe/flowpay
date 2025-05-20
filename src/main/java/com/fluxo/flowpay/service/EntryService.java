@@ -13,24 +13,20 @@ import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.groupingBy;
 
-@Service
 public class EntryService {
 
-    @Autowired
-    private final EntryRepository er;
-
-    public EntryService(EntryRepository er){
-        this.er = er;
-    }
+    private EntryRepository entryRepository;
 
     public Entry save(Entry entry){
-        return er.save(entry);
+        return entryRepository.save(entry);
     }
 
+
     public List<DailyBalanceDTO> calculateDailyBalance(){
-        return er.findAll().stream()
+        return entryRepository.findAll().stream()
                 .collect(groupingBy(Entry::getData))
-                .entrySet().stream()
+                .entrySet()
+                .stream()
                 .map(entry -> {
                     BigDecimal credits = entry.getValue().stream()
                             .filter(e -> e.getType().equals(EntryType.CREDIT))
