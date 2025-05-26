@@ -1,6 +1,9 @@
-package com.fluxo.flowpay.dto;
+package com.fluxo.flowpay.response;
 
-public class ViaCepDto {
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class ViaCepResponse {
 
     private String cep;
     private String logradouro;
