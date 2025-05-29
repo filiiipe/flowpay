@@ -13,8 +13,10 @@ import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.groupingBy;
 
+@Service
 public class EntryService {
 
+    @Autowired
     private EntryRepository entryRepository;
 
     public Entry save(Entry entry){
