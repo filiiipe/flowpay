@@ -147,5 +147,5 @@ mvn test
 
 ---
 
-© 2025 FlowPay. Desenvolvido como desafio de processo seletivo.
+© 2025 FlowPay.
 
