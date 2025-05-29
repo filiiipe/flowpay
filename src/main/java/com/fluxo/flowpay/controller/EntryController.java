@@ -14,22 +14,19 @@ import java.util.List;
 @RequestMapping("/entries")
 public class EntryController {
 
-    @Autowired
-    private EntryService es;
 
-    public EntryController(EntryService es){
-        this.es = es;
-    }
+    @Autowired
+    private EntryService entryService;
 
     @PostMapping
     public ResponseEntity<Entry> createEntry(@RequestBody Entry entry) {
-        Entry savedEntry = es.save(entry);
+        Entry savedEntry = entryService.save(entry);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedEntry);
     }
 
     @GetMapping("/daily-balance")
     public ResponseEntity<List<DailyBalanceDTO>> getDailyBalance() {
-        List<DailyBalanceDTO> balances = es.calculateDailyBalance();
+        List<DailyBalanceDTO> balances = entryService.calculateDailyBalance();
         return ResponseEntity.ok(balances);
     }
 }
