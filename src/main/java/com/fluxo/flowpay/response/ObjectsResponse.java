@@ -1,17 +1,16 @@
 package com.fluxo.flowpay.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fluxo.flowpay.dto.Data;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fluxo.flowpay.dto.DataDTO;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ObjectsResponse {
 
     private Long id;
     private String name;
-
-    @Autowired
-    private Data data;
+    @JsonProperty("data")
+    private DataDTO dataDTO;
 
     public Long getId() {
         return id;
@@ -29,11 +28,11 @@ public class ObjectsResponse {
         this.name = name;
     }
 
-    public Data getData() {
-        return data;
+    public DataDTO getDataDTO() {
+        return dataDTO;
     }
 
-    public void setData(Data data) {
-        this.data = data;
+    public void setDataDTO(DataDTO dataDTO) {
+        this.dataDTO = dataDTO;
     }
 }

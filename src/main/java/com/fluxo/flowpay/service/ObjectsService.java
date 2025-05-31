@@ -1,6 +1,5 @@
 package com.fluxo.flowpay.service;
 
-import com.fluxo.flowpay.controller.ObjectsController;
 import com.fluxo.flowpay.objects.ObjectsClient;
 import com.fluxo.flowpay.response.ObjectsResponse;
 import feign.FeignException;
@@ -12,16 +11,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class ObjectsService {
 
-    private static final Logger LOG = LoggerFactory.getLogger(ObjectsController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ObjectsService.class);
     @Autowired
     private ObjectsClient objectsClient;
 
     public ObjectsResponse callObjectsResponse(Long id){
         try {
-            objectsClient.getObjectById(id);
+            return objectsClient.getObjectById(id);
         }catch (FeignException feignException){
-            LOG.error(feignException.getMessage());
+            throw new RuntimeException(feignException.getMessage());
         }
-        return objectsClient.getObjectById(id);
     }
 }

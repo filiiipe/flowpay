@@ -79,7 +79,7 @@ A API estará disponível em `http://localhost:8080`.
 **Payload (JSON)**:
 ```json
 {
-  "data": "2025-04-23",
+  "dataDTO": "2025-04-23",
   "type": "CREDIT",
   "amount": 1000.00,
   "description": "Pagamento recebido"
@@ -90,7 +90,7 @@ A API estará disponível em `http://localhost:8080`.
 ```bash
 curl -X POST http://localhost:8080/entries \
   -H "Content-Type: application/json" \
-  -d '{"data":"2025-04-23","type":"CREDIT","amount":1000.00}'
+  -d '{"dataDTO":"2025-04-23","type":"CREDIT","amount":1000.00}'
 ```
 
 ### Consultar Saldo Diário
@@ -100,7 +100,7 @@ curl -X POST http://localhost:8080/entries \
 ```json
 [
   {
-    "data": "2025-04-23",
+    "dataDTO": "2025-04-23",
     "totalCredit": 1000.00,
     "totalDebit": 250.00,
     "finalBalance": 750.00
@@ -115,7 +115,7 @@ curl -X POST http://localhost:8080/entries \
 - **JPA/H2**: uso de Spring Data JPA, H2 em memória para testes rápidos e sem configuração externa.
 - **DTO**: `DailyBalanceDTO` para formatar saída JSON sem acoplar entidade ao cliente.
 - **Enum**: `EntryType` (`CREDIT`, `DEBIT`) garante consistência de tipo de lançamento.
-- **Validações & Precisão**: uso de `LocalDate` para data pura e `BigDecimal` para valores.
+- **Validações & Precisão**: uso de `LocalDate` para dataDTO pura e `BigDecimal` para valores.
 
 ---
 
@@ -147,5 +147,5 @@ mvn test
 
 ---
 
-© 2025 FlowPay. Desenvolvido como desafio de processo seletivo.
+© 2025 FlowPay.
 

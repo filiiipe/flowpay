@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(name = "objects", url = "https://api.restful-api.dev")
 public interface ObjectsClient {
 
-    @GetMapping("objects/{id}/")
+    @GetMapping("/objects/{id}")
     ObjectsResponse getObjectById(@PathVariable("id") Long id);
 }
