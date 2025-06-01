@@ -2,29 +2,42 @@ package com.fluxo.flowpay.dto;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class DataDTO {
 
     private String year;
+
+    @JsonAlias({"generation", "Generation"})
     private String generation;
+
+    @JsonAlias({"price", "Price"})
     private String price;
+
     @JsonAlias({"color", "Color"})
     private String color;
+
+    @JsonAlias({"capacity", "Capacity"})
     private String capacity;
-    @JsonProperty("CPU model")
+
+    @JsonAlias("CPU model")
     private String cpuModel;
-    @JsonProperty("Hard disk size")
+
+    @JsonAlias("Hard disk size")
     private String hardDiskSize;
-    @JsonProperty("Strap Colour")
+
+    @JsonAlias("Strap Colour")
     private String strapColour;
-    @JsonProperty("Case Size")
+
+    @JsonAlias("Case Size")
     private String caseSize;
-    @JsonProperty("Screen size")
+
+    @JsonAlias("Screen size")
     private String screenSize;
+
     @JsonAlias({"description", "Description"})
     private String description;
+
 
     public String getYear() {
         return year;

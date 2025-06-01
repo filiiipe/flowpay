@@ -8,9 +8,12 @@ import com.fluxo.flowpay.dto.DataDTO;
 public class ObjectsResponse {
 
     private Long id;
+
     private String name;
+
     @JsonProperty("data")
     private DataDTO dataDTO;
+
 
     public Long getId() {
         return id;
